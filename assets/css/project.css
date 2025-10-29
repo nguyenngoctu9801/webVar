@@ -1,0 +1,110 @@
+:root {
+  --card-dark: #1e1e2f;
+  --accent: #2962ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #12121f;
+  color: #fff;
+}
+
+.camnet-hero {
+  background: #000;
+  padding: 60px 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.camnet-hero__title {
+  font-size: 40px;
+  font-weight: 500;
+  color: #eaf0fb;
+  margin: 0 0 16px 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+ 
+.empty-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a1a2e, #12121f 60%);
+  min-height: 60vh;
+}
+
+.empty-box {
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease forwards;
+}
+
+.empty-icon {
+  width: 120px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(41, 98, 255, 0.3));
+}
+
+.empty-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+    font-family: "montserrat", sans-serif;
+  color: #00aaff;
+}
+
+.empty-box p {
+  font-size: 1rem;
+  opacity: 0.8;
+    font-family: "montserrat", sans-serif;
+  line-height: 1.6;
+}
+
+ 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ 
+@media (max-width: 768px) {
+  .camnet-hero {
+    padding: 40px 20px;
+  }
+
+  .empty-box {
+    padding: 30px 20px;
+  }
+}

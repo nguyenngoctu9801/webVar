@@ -1,0 +1,301 @@
+:root {
+  --card-dark: #1e1e2f;
+  --accent: #2962ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+    background-color: #12121f;
+  color: #fff;
+}
+
+.service-section {
+  margin: 0 auto;
+  padding: 100px 80px;
+}
+
+h2.section-title {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Lưới chia 2 cột */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card */
+.card {
+  background: var(--card-dark);
+  padding: 50px 40px;
+  display: flex;
+  align-items: flex-start;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  min-height: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Bỏ kẻ trái ở cột đầu */
+.card:nth-child(odd) {
+  border-left: none;
+}
+
+/* Thanh màu xanh nhỏ bên cạnh */
+.card .bar {
+  width: 6px;
+  height: 40px;
+  background-color: var(--accent);
+  border-radius: 3px;
+  margin-right: 20px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-desc {
+  font-size: 18px;
+  color: #d8dbe8;
+  text-align: justify;
+  max-width: 370px;
+  line-height: 1.6;
+  font-family: "proxima-n-w01-reg", sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+    border: none;
+  }
+  .card {
+    border-left: none;
+    min-height: 180px;
+  }
+}
+
+/* --- Sơ Đồ Camnet --- */
+.flow-chart-section {
+  background: url("../img/sodoDichvu.avif") center/cover no-repeat;
+  padding: 80px 150px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.flow-chart-title {
+  font-size: 37px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 60px;
+}
+
+/* --- Container chính --- */
+.flow-chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 120px; /* khoảng cách giữa các khối */
+  width: 100%;
+  position: relative;
+  padding: 80px 60px;
+  flex-wrap: nowrap; /* giữ 3 khối cùng hàng */
+  margin: 0 auto;
+}
+
+/* --- Box Trái & Phải --- */
+.chart-box {
+  background: rgba(0, 0, 0, 0.6);
+  border: 10px solid #242834;
+  padding: 25px;
+  width: 340px;
+  min-height: 450px;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 0 10px rgba(36, 40, 52, 0.3);
+  z-index: 2;
+}
+
+.box-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.box-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* --- Khối Trung Tâm --- */
+.chart-center {
+  position: relative;
+  width: 420px;
+  height: 120px;
+  border: 5px solid #242834;
+  border-radius: 60px;
+  background: rgba(20, 20, 20, 0.8);
+  box-shadow: 0 0 20px rgba(36, 40, 52, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: visible;
+  z-index: 1;
+}
+
+.center-text {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  z-index: 2;
+}
+
+.center-text strong {
+  color: #ffcc00;
+}
+
+/* --- Mũi tên hai bên --- */
+.center-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  opacity: 0.95;
+  z-index: 0;
+  /* Đổi sang màu #242834 */
+  filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(743%)
+    hue-rotate(186deg) brightness(94%) contrast(94%);
+}
+
+/* Đặt mũi tên ra ngoài, không chồng lên box */
+.left-arrow {
+  right: calc(100% + 50px);
+}
+
+.right-arrow {
+  left: calc(100% + 50px);
+}
+
+/* --- Bỏ hiệu ứng hover xoay --- */
+.chart-center:hover .center-arrow {
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .flow-chart-section {
+    padding: 60px 20px; /* giảm padding ngang */
+  }
+
+  /* 🎯 Tiêu đề chính */
+  .flow-chart-title {
+    font-size: 1.6rem; /* thu nhỏ font */
+    line-height: 1.6;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .flow-chart-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .chart-center {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Mũi tên cơ bản */
+  .center-arrow {
+    position: absolute;
+    left: 50%;
+    width: 80px;
+    opacity: 0.9;
+    transform: translateX(-50%);
+    filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(743%)
+      hue-rotate(186deg) brightness(94%) contrast(94%);
+    pointer-events: none;
+  }
+
+  /* 🔼 Mũi tên chỉ lên (trên chart-center) */
+  .left-arrow {
+    top: -90px;
+    transform: translateX(-50%) rotate(270deg);
+    z-index: 1;
+  }
+
+  /* 🔽 Mũi tên chỉ xuống (ra ngoài chart-center, không đè text) */
+  .right-arrow {
+    position: absolute;
+    top: 100%; /* ⬅️ đặt ngay dưới chart-center */
+    margin-top: 20px; /* ⬅️ cách hẳn ra khỏi text */
+    transform: translateX(-50%) rotate(90deg);
+    z-index: 1;
+  }
+  .center-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .box-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .box-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}

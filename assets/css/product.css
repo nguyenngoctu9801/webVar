@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #050a10;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.product-title {
+  text-align: left; /* Căn trái */
+  font-size: 2.2rem;
+  font-weight: 500;
+  padding: 60px 0 50px;
+  margin: 0 6%;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 170, 255, 0.3);
+  position: relative;
+  width: fit-content; /* chỉ chiếm đúng độ dài text */
+}
+
+/* Container */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  margin: 0 auto 60px;
+}
+
+/* Card sản phẩm */
+.product-card {
+  background-color: #1b1e25;
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 500px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  padding-top: 55px; /* để chừa chỗ cho header */
+  box-sizing: border-box;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0, 170, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.product-header {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  transform: translateX(-50%); /* căn giữa */
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid #00aaff;
+  border-radius: 0 0 8px 8px;
+  font-family: "Montserrat", sans-serif;
+  z-index: 2;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  width: fit-content; /* 🔥 chỉ chiếm vừa nội dung */
+  min-width: 150px; /* bằng với chiều rộng ảnh */
+}
+
+
+.product-image {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  background-color: #0d1117;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+  margin-top: 40px; /* để tránh header đè lên */
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.25);
+}
+
+
+/* Danh sách đặc điểm */
+.product-list {
+  list-style: none;
+  padding: 50px 0;
+  margin: 0;
+  width: 50%;
+}
+
+.product-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Giảm khoảng trống khi màn hình nhỏ */
+@media (max-width: 900px) {
+  .product-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    flex: 1 1 100%;
+  }
+}
