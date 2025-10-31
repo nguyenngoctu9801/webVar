@@ -16,7 +16,7 @@ body {
   background-size: cover;       
   background-position: center;   
   background-repeat: no-repeat; 
-  color: #fff;
+  color: white;
   padding: 0;
   width: 100vw;
   
@@ -27,7 +27,7 @@ body {
 }
 
 .nav-list li a.active {
-  color: #5b25e4 !important;
+  color: #3a6afd !important;
   font-weight: bold;
   padding: 8px 15px;
   border-radius: 15px;
@@ -80,7 +80,7 @@ body {
 }
 
 .navbar .nav-list li a {
-  color: #fffdfd;
+  color: #ffffff;
   text-decoration: none;
   font-size: 16px;
   font-weight: normal;

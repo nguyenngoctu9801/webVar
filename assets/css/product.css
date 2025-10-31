@@ -11,7 +11,7 @@ html::-webkit-scrollbar {
 }
 
 .product-title {
-  text-align: left; /* Căn trái */
+  text-align: left;
   font-size: 2.2rem;
   font-weight: 500;
   padding: 60px 0 50px;
@@ -19,7 +19,7 @@ html::-webkit-scrollbar {
   letter-spacing: 1px;
   text-shadow: 0 2px 10px rgba(0, 170, 255, 0.3);
   position: relative;
-  width: fit-content; /* chỉ chiếm đúng độ dài text */
+  width: fit-content;
 }
 
 /* Container */
@@ -38,18 +38,19 @@ html::-webkit-scrollbar {
   background-color: #1b1e25;
   flex: 1 1 300px;
   min-width: 280px;
-  max-width: 500px;
+  max-width: 550px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-  padding-top: 55px; /* để chừa chỗ cho header */
+  padding-top: 55px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
+/* Hiệu ứng ánh sáng */
 .product-card::before {
   content: "";
   position: absolute;
@@ -63,18 +64,58 @@ html::-webkit-scrollbar {
   opacity: 1;
 }
 
-
-
+/* Hover */
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
+/* -------------------- */
+/* ✨ ANIMATION TÙY CHỈNH ✨ */
+/* -------------------- */
+
+/* Header trượt từ trên xuống */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hình và danh sách trượt từ trái qua */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Áp dụng animation */
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .product-header {
   position: absolute;
   top: 0;
-  left: 40%;
-  transform: translateX(-50%); /* căn giữa */
+  transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.95);
   color: #000;
   font-weight: 600;
@@ -85,11 +126,13 @@ html::-webkit-scrollbar {
   border-radius: 0 0 8px 8px;
   font-family: "Montserrat", sans-serif;
   z-index: 2;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  width: fit-content; /* 🔥 chỉ chiếm vừa nội dung */
-  min-width: 150px; /* bằng với chiều rộng ảnh */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  width: fit-content;
+  min-width: 150px;
+  animation: slideDown 0.8s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
-
 
 .product-image {
   width: 250px;
@@ -98,22 +141,26 @@ html::-webkit-scrollbar {
   border-radius: 6px;
   margin-bottom: 20px;
   background-color: #0d1117;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
-  margin-top: 40px; /* để tránh header đè lên */
+  margin-top: 40px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  animation: slideInLeft 0.8s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
-.product-card:hover .product-image {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.25);
-}
-
-
-/* Danh sách đặc điểm */
 .product-list {
   list-style: none;
   padding: 50px 0;
   margin: 0;
   width: 50%;
+  animation: slideInLeft 0.8s ease forwards;
+  animation-delay: 0.7s;
+  opacity: 0;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.25);
 }
 
 .product-list li {
@@ -123,7 +170,7 @@ html::-webkit-scrollbar {
   font-size: 0.95rem;
 }
 
-/* Giảm khoảng trống khi màn hình nhỏ */
+/* Responsive */
 @media (max-width: 900px) {
   .product-card {
     flex: 1 1 45%;

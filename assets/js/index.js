@@ -59,6 +59,8 @@ fetch("components/footer.html")
     easing: 'ease-out'
   });
 
+  //image 
+
   
 
    const gallery = document.querySelector('.sports-gallery')
@@ -169,3 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
   });
 });
+
+
+
+// sevice
+
+
