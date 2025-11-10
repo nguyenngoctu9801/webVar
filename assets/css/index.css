@@ -1109,7 +1109,7 @@ body {
 .tab {
   background: transparent;
   border: none;
-  color: #ccc;
+  color: #1b0606;
   font-weight: 500;
   cursor: pointer;
   padding-bottom: 8px;
@@ -1118,8 +1118,8 @@ body {
 }
 
 .tab.active {
-  color: #fff;
-  border-bottom: 2px solid #2962ff;
+  color: #3a6afd;
+  border-bottom: 2px solid #3a6afd;
 }
 
 /* FAQ Items */
