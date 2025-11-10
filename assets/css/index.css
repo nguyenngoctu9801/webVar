@@ -384,7 +384,7 @@ body {
 
 /* --- Grid chính --- */
 .why-inner {
-  max-width: 700px;
+  max-width: 680px;
   margin-left: 60px;
 }
 
@@ -746,7 +746,7 @@ body {
   display: inline-block;
   width: 15px;
   height: 100%;
-  min-height: 100px;
+  max-height: 100px;
   background-color: #3a6afd;
   border-radius: 2px;
 }
@@ -762,7 +762,7 @@ body {
 
 .testimonial-profile {
   display: flex;
-  align-items: center;
+
   gap: 10px;
   margin-top: 20px;
 }
@@ -772,6 +772,20 @@ body {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+}
+.testimonial-profile h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+.testimonial-profile p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: start;
+  font-family: "proxima-n-w01-reg", sans-serif;
+  color: #cccccc;
 }
 
 /* Tổng thể */
@@ -1142,6 +1156,16 @@ body {
 
 .faq-item.active .faq-question::after {
   transform: rotate(180deg);
+}
+.faq-question::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 10px;
+  background-color: #3a6afd; 
+  border-radius: 50%;
+  vertical-align: middle;
 }
 
 .faq-answer {

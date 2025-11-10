@@ -109,26 +109,22 @@ fetch("components/footer.html")
 
 
 
-   // Toggle mở/đóng câu hỏi
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      question.parentElement.classList.toggle('active');
+// Lấy tất cả câu hỏi
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', () => {
+    // Trước tiên đóng tất cả FAQ
+    faqQuestions.forEach(q => {
+      if (q !== question) {
+        q.parentElement.classList.remove('active');
+      }
     });
+
+    // Toggle FAQ được click
+    question.parentElement.classList.toggle('active');
   });
-
-  // Tabs chuyển danh sách FAQ
-  const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const tabId = tab.getAttribute('data-tab');
-      document.querySelectorAll('.faq-list').forEach(list => list.style.display = 'none');
-      document.getElementById(tabId).style.display = 'block';
-    });
-  });
+});
 
   //animation 
   document.addEventListener("DOMContentLoaded", function () {
